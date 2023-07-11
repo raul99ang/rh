@@ -1,0 +1,36 @@
+<div class="card mt-5">
+    <div class="card-header">
+        {{this.isNew ? "Register AZ_TR_ROLES" : "Update AZ_TR_ROLES"}}
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="submitAZ_TR_ROLES(forma)" #forma="ngForm" class="row g-3">
+<div class="col-md-6">
+<label for="label-Id_roles"  class="form-label">Id_roles:</label>"
+<input #inputid_roles="ngModel"  type="text" name="Id_roles" [ngClass]="{'is-invalid': inputid_roles.touched && inputid_roles.hasError('required') }" [(ngModel)]="az_tr_roles.id_roles" class="form-control" id="Id_roles" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-Id_perfil"  class="form-label">Id_perfil:</label>"
+<input #inputid_perfil="ngModel"  type="text" name="Id_perfil" [ngClass]="{'is-invalid': inputid_perfil.touched && inputid_perfil.hasError('required') }" [(ngModel)]="az_tr_roles.id_perfil" class="form-control" id="Id_perfil" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-Id_usuario"  class="form-label">Id_usuario:</label>"
+<input #inputid_usuario="ngModel"  type="text" name="Id_usuario" [ngClass]="{'is-invalid': inputid_usuario.touched && inputid_usuario.hasError('required') }" [(ngModel)]="az_tr_roles.id_usuario" class="form-control" id="Id_usuario" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-12 text-center">
+            <button class=" btn btn-primary" type="submit" [disabled]="forma.invalid">{{this.isNew ? "Register" : "Update"}}</button>
+            <button style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="limpiarForm(forma)">Clear</button>
+            <button *ngIf="!this.isNew" style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="emitChange.emit()">Cancel</button>
+          </div>
+      </form>
+    </div>
+</div>
+<router-outlet></router-outlet> 

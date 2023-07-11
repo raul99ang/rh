@@ -1,0 +1,29 @@
+<div class="card mt-5">
+    <div class="card-header">
+        {{this.isNew ? "Register AZ_TC_PERFIL" : "Update AZ_TC_PERFIL"}}
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="submitAZ_TC_PERFIL(forma)" #forma="ngForm" class="row g-3">
+<div class="col-md-6">
+<label for="label-Id_perfil"  class="form-label">Id_perfil:</label>"
+<input #inputid_perfil="ngModel"  type="text" name="Id_perfil" [ngClass]="{'is-invalid': inputid_perfil.touched && inputid_perfil.hasError('required') }" [(ngModel)]="az_tc_perfil.id_perfil" class="form-control" id="Id_perfil" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-Nombre"  class="form-label">Nombre:</label>"
+<input #inputnombre="ngModel"  type="text" name="Nombre" [ngClass]="{'is-invalid': inputnombre.touched && inputnombre.hasError('required') }" [(ngModel)]="az_tc_perfil.nombre" class="form-control" id="Nombre" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-12 text-center">
+            <button class=" btn btn-primary" type="submit" [disabled]="forma.invalid">{{this.isNew ? "Register" : "Update"}}</button>
+            <button style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="limpiarForm(forma)">Clear</button>
+            <button *ngIf="!this.isNew" style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="emitChange.emit()">Cancel</button>
+          </div>
+      </form>
+    </div>
+</div>
+<router-outlet></router-outlet> 

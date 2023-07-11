@@ -1,0 +1,64 @@
+<div class="card mt-5">
+    <div class="card-header">
+        {{this.isNew ? "Register AZ_TR_MENU" : "Update AZ_TR_MENU"}}
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="submitAZ_TR_MENU(forma)" #forma="ngForm" class="row g-3">
+<div class="col-md-6">
+<label for="label-Id_menu"  class="form-label">Id_menu:</label>"
+<input #inputid_menu="ngModel"  type="text" name="Id_menu" [ngClass]="{'is-invalid': inputid_menu.touched && inputid_menu.hasError('required') }" [(ngModel)]="az_tr_menu.id_menu" class="form-control" id="Id_menu" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-Id_modulo"  class="form-label">Id_modulo:</label>"
+<input #inputid_modulo="ngModel"  type="text" name="Id_modulo" [ngClass]="{'is-invalid': inputid_modulo.touched && inputid_modulo.hasError('required') }" [(ngModel)]="az_tr_menu.id_modulo" class="form-control" id="Id_modulo" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-Nombre"  class="form-label">Nombre:</label>"
+<input #inputnombre="ngModel"  type="text" name="Nombre" [ngClass]="{'is-invalid': inputnombre.touched && inputnombre.hasError('required') }" [(ngModel)]="az_tr_menu.nombre" class="form-control" id="Nombre" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-Icono"  class="form-label">Icono:</label>"
+<input #inputicono="ngModel"  type="text" name="Icono" [ngClass]="{'is-invalid': inputicono.touched && inputicono.hasError('required') }" [(ngModel)]="az_tr_menu.icono" class="form-control" id="Icono" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-Orden"  class="form-label">Orden:</label>"
+<input #inputorden="ngModel"  type="text" name="Orden" [ngClass]="{'is-invalid': inputorden.touched && inputorden.hasError('required') }" [(ngModel)]="az_tr_menu.orden" class="form-control" id="Orden" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-Id_padre"  class="form-label">Id_padre:</label>"
+<input #inputid_padre="ngModel"  type="text" name="Id_padre" [ngClass]="{'is-invalid': inputid_padre.touched && inputid_padre.hasError('required') }" [(ngModel)]="az_tr_menu.id_padre" class="form-control" id="Id_padre" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-md-6">
+<label for="label-Ruta"  class="form-label">Ruta:</label>"
+<input #inputruta="ngModel"  type="text" name="Ruta" [ngClass]="{'is-invalid': inputruta.touched && inputruta.hasError('required') }" [(ngModel)]="az_tr_menu.ruta" class="form-control" id="Ruta" value="" required>
+<div class="invalid-feedback">
+                Field required
+            </div>
+        </div>
+<div class="col-12 text-center">
+            <button class=" btn btn-primary" type="submit" [disabled]="forma.invalid">{{this.isNew ? "Register" : "Update"}}</button>
+            <button style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="limpiarForm(forma)">Clear</button>
+            <button *ngIf="!this.isNew" style="margin-left: 10px;" class=" btn btn-danger" type="button" (click)="emitChange.emit()">Cancel</button>
+          </div>
+      </form>
+    </div>
+</div>
+<router-outlet></router-outlet> 
